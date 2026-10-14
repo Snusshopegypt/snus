@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snus Shop Egypt | Premium Nicotine Pouches</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <p><i class="fa-solid fa-truck-fast"></i> Fast Delivery Across Cairo & All Egypt | Order via WhatsApp <i class="fa-brands fa-whatsapp"></i></p>
+    </div>
+
+<header class="navbar">
+    <div class="container nav-container">
+        <!-- TOP LEFT LOGO -->
+        <div class="logo">
+            <img src="snus egypt logo-cutout.png" alt="Snus Shop Egypt" class="site-logo">
+        </div>
+
+        <!-- CENTERED LINKS -->
+        <nav class="nav-links">
+            <a href="#shop">Shop</a>
+            <a href="#shop">Bundles & Promos</a>
+        </nav>
+
+        <!-- TOP RIGHT BUTTONS -->
+        <div class="nav-actions">
+            <button id="cart-btn" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </button>
+            <button id="admin-toggle-btn" class="admin-btn" title="Admin Manager">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Premium Snus & Nicotine Pouches in Egypt</h1>
+            <p>Experience top-tier international brands delivered right to your doorstep. Clean, smoke-free, and satisfying.</p>
+            <a href="#shop" class="btn btn-primary">Explore Products <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Main Shop Section -->
+    <main class="container main-content" id="shop">
+        <div class="section-header">
+            <h2>Our Catalog</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="Pouch">Pouches</button>
+                <button class="filter-btn" data-filter="Bundle">Bundles & Deals</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="product-grid">
+            <!-- Dynamically loaded -->
+        </div>
+    </main>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content admin-content">
+            <span class="close-admin">&times;</span>
+            <h2><i class="fa-solid fa-shield-halved"></i> Admin Product Manager</h2>
+            <p>Add new products, change image URLs, update prices, or delete items instantly.</p>
+            
+            <form id="add-product-form" class="admin-form">
+                <input type="hidden" id="p-id">
+                <h3 id="form-title">Add New Product / Bundle</h3>
+                <div class="form-group">
+                    <label>Product / Bundle Name</label>
+                    <input type="text" id="p-name" required placeholder="e.g. VELO Freeze or 3-Can Bundle">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="p-category">
+                            <option value="Pouch">Pouch</option>
+                            <option value="Bundle">Bundle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (EGP)</label>
+                        <input type="number" id="p-price" required placeholder="250">
+                    </div>
+                    <div class="form-group">
+                        <label>Old Price (Optional)</label>
+                        <input type="number" id="p-oldprice" placeholder="300">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Badge (e.g. Best Seller, Save 100 EGP)</label>
+                    <input type="text" id="p-badge" placeholder="Best Seller">
+                </div>
+                <div class="form-group">
+                    <label>Image URL (Paste working direct image link)</label>
+                    <input type="text" id="p-image" required placeholder="https://images.unsplash.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="p-desc" placeholder="Flavor, nicotine strength, etc."></textarea>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-primary" id="save-product-btn" style="flex: 2;">Add Product</button>
+                    <button type="button" id="cancel-edit-btn" class="btn btn-secondary" style="display: none; flex: 1;">Cancel</button>
+                </div>
+            </form>
+
+            <div class="admin-manager" style="margin-top: 30px;">
+                <h3>Manage / Delete Existing Products</h3>
+                <div id="admin-product-list" class="admin-product-list" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px; max-height: 250px; overflow-y: auto;">
+                    <!-- Dynamically populated product list for editing/deleting -->
+                </div>
+            </div>
+
+            <div class="admin-export">
+                <h3>Update GitHub File</h3>
+                <p>After making changes, click below to download your updated <code>products.json</code> file and upload it to your GitHub repository.</p>
+                <button id="export-json-btn" class="btn btn-secondary"><i class="fa-solid fa-download"></i> Download products.json</button>
+            </div>
+        </div>
+    </div>
+<!-- Product Detail Popup Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content product-detail-content">
+            <span class="close-product-modal">&times;</span>
+            <div id="modal-product-details">
+                <!-- Dynamically populated when clicking a product -->
+            </div>
+        </div>
+    </div>
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Your Cart</h3>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">0 EGP</span>
+            </div>
+            <div class="checkout-form">
+                <input type="text" id="customer-name" placeholder="Your Full Name" required>
+                <input type="tel" id="customer-phone" placeholder="Egyptian Phone (01xxxxxxxx)" required>
+                <textarea id="customer-address" placeholder="Delivery Address (City, Street, Building, Apartment)" required></textarea>
+                <button id="whatsapp-checkout-btn" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"> Checkout via WhatsApp</i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                <i class="snus egypt logo-cutout.png"></i>
+                <span>SNUS EGYPT</span>
+            </div>
+            <p>&copy; 2026 Snus Shop Egypt. All rights reserved. 18+ Only.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

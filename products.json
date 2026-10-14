@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1792020345285,
+    "name": "SWAG XS Minto ",
+    "category": "Pouch",
+    "price": 350,
+    "oldPrice": 400,
+    "badge": "Best Seller, Save 50 EGP",
+    "image": "https://www.nicotine.ae/wp-content/uploads/2025/10/SWAGXSMINTO5Dot.webp",
+    "description": "FACTS\n\nNet Weight: 14 g\nFlavour Description: Mint\nNicotine Level: (30mg Per Pouch)\nPouches Per Can: 20\nPouch Size: Slim\nPouch Weight: 0,7 g\nManufacturer: AM Swedish"
+  },
+  {
+    "id": 1792020567749,
+    "name": "KLINT Avalanche Mint Ultra-Strong Level 6",
+    "category": "Pouch",
+    "price": 400,
+    "oldPrice": 450,
+    "badge": "Save 50 EGP",
+    "image": "https://fixandklint.com/cdn/shop/files/KLINT_AVALANCHE_MINT_ULTRA-STRONG_LEVEL_6_ed30bf48-abf1-4871-8896-19393ed1ab21.png?v=1774985034",
+    "description": "Package details\n\nNicotine per pouch\t25 mg\nContent 20 pouch\nType Slim\nNicotine per can 500 mg\nWeight 14 g"
+  },
+  {
+    "id": 1792020735096,
+    "name": "SWAG XS Minto Roll (10 Cans)",
+    "category": "Bundle",
+    "price": 3000,
+    "oldPrice": 3500,
+    "badge": "Save 500 EGP",
+    "image": "https://www.nicotine.ae/wp-content/uploads/2025/10/SWAGXSMINTO5Dot.webp",
+    "description": ""
+  }
+]
